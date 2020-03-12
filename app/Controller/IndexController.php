@@ -16,6 +16,9 @@ class IndexController extends AbstractController
 {
     public function index()
     {
+        $redis = new \Redis();
+        $redis->get("test");
+
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
 
