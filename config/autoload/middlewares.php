@@ -12,5 +12,9 @@ declare(strict_types=1);
 
 return [
     'http' => [
+        Hyperf\SwooleTracker\Middleware\HttpServerMiddleware::class
+    ],
+    'jsonrpc-http' => [
+        Hyperf\SwooleTracker\Middleware\HttpServerMiddleware::class
     ],
 ];
