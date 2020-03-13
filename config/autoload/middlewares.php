@@ -15,6 +15,6 @@ return [
         Hyperf\SwooleTracker\Middleware\HttpServerMiddleware::class
     ],
     'jsonrpc-http' => [
-        Hyperf\SwooleTracker\Middleware\HttpServerMiddleware::class
+        App\Middleware\JsonRpcHttpServerMiddleware::class
     ],
 ];
