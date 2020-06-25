@@ -20,10 +20,10 @@ use Hyperf\HttpServer\Annotation\AutoController;
  */
 class IndexController extends AbstractController
 {
-    public function index()
+    public function index(RequestInterface $request)
     {
-        $user = $this->request->input('user', 'Hyperf');
-        $method = $this->request->getMethod();
+        $user = $request->input('user', 'Hyperf');
+        $method = $request->getMethod();
 
         return [
             'method' => $method,
