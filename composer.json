@@ -21,7 +21,7 @@
         "hyperf/database": "~2.0.0",
         "hyperf/db-connection": "~2.0.0",
         "hyperf/devtool": "~2.0.0",
-        "hyperf/di": "~2.0.0",
+        "hyperf/di": "2.0.x-dev",
         "hyperf/dispatcher": "~2.0.0",
         "hyperf/event": "~2.0.0",
         "hyperf/exception-handler": "~2.0.0",
