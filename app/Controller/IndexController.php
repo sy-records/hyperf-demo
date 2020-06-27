@@ -16,6 +16,8 @@ use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Annotation\AutoController;
 use App\Model\User;
 use Hyperf\Cache\Annotation\Cacheable;
+use App\Service\UserService;
+use Hyperf\Di\Annotation\Inject;
 
 /**
  * @AutoController()
@@ -31,6 +33,18 @@ class IndexController extends AbstractController
             'method' => $method,
             'message' => "Hello {$user}.",
         ];
+    }
+
+    /**
+     * @Inject
+     * @var UserService
+     */
+    private $userService;
+
+    public function testInject()
+    {
+        $id = 1;
+        return $this->userService->getInfoById($id);
     }
 
     public function testUser(RequestInterface $request)
