@@ -14,6 +14,8 @@ namespace App\Controller;
 
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Annotation\AutoController;
+use App\Model\User;
+use Hyperf\Cache\Annotation\Cacheable;
 
 /**
  * @AutoController()
@@ -30,4 +32,24 @@ class IndexController extends AbstractController
             'message' => "Hello {$user}.",
         ];
     }
+
+    public function testUser(RequestInterface $request)
+    {
+        $id = $request->input('id', 1);
+        return $this->user((int)$id);
+    }
+
+    /**
+     * @Cacheable(prefix="user", ttl=7200, listener="USER_CACHE")
+     */
+    public function user(int $id): array
+    {
+        $user = User::query()->find($id);
+
+        return [
+            'user' => $user->toArray(),
+            'uuid' => uniqid(),
+        ];
+    }
+
 }
