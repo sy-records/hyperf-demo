@@ -34,7 +34,10 @@
         "hyperf/pool": "~2.0.0",
         "hyperf/process": "~2.0.0",
         "hyperf/redis": "~2.0.0",
-        "hyperf/utils": "~2.0.0"
+        "hyperf/utils": "~2.0.0",
+        "hyperf/json-rpc": "^2.0",
+        "hyperf/rpc-server": "^2.0",
+        "hyperf/rpc-client": "^2.0"
     },
     "require-dev": {
         "phpmd/phpmd": "^2.6",

@@ -18,14 +18,21 @@ use App\Model\User;
 use Hyperf\Cache\Annotation\Cacheable;
 use App\Service\UserService;
 use Hyperf\Di\Annotation\Inject;
+use App\JsonRpc\CalculatorServiceInterface;
 
-/**
- * @AutoController()
- */
 class IndexController extends AbstractController
 {
+    /**
+     * @Inject()
+     * @var CalculatorServiceInterface
+     */
+    private $calculatorService;
+
     public function index(RequestInterface $request)
     {
+        $data = $this->calculatorService->add(1,2);
+        var_dump($data);
+
         $user = $request->input('user', 'Hyperf');
         $method = $request->getMethod();
 
